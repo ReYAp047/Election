@@ -157,63 +157,33 @@
 				<h4 class="light muted">Merci de prendre votre temps dans le vote </h4>
 			</div>
 			<div class="row">
-				<div class="col-md-4">
-					<div class="team text-center">
-						<div class="cover" style="background:url('../static/img/team/arriere.jpg'); background-size:cover;">
-							<div class="overlay text-center">
-								<h3 class="white">10 ans</h3>
-								<h5 class="light light-white">D'expérience</h5>
+
+				{% if con %}
+					{% for st in con %}
+						<div class="col-md-4">
+							<div class="team text-center">
+								<div class="cover" style="background:url('../static/img/team/arriere.jpg'); background-size:cover;">
+									<div class="overlay text-center">
+										<h3 class="white">{{st.Experience}} ans</h3>
+										<h5 class="light light-white">D'expérience</h5>
+									</div>
+								</div>
+								<img src="https://res.cloudinary.com/dhncrtnjp/image/upload/v1642423240/{{st.Image}}.png" alt="Team Image" class="fit" id="fit">
+								<div class="title">
+									<h4>{{st.Nom_condidat}}</h4>
+									<h5 class="muted regular">{{st.Titre}}</h5>
+									<div class="progress">
+										<div class="progress-bar" role="progressbar" style="width: 1%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+									</div>
+								</div>
+								<a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue-fill ripple">Voter</a>
 							</div>
 						</div>
-						<img src="../static/img/team/wassim.jpg" alt="Team Image" class="avatar">
-						<div class="title">
-							<h4>Wassim HAMMAMI</h4>
-							<h5 class="muted regular">Enseignant informatique</h5>
-							<div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                            </div>
-						</div>
-						<button data-toggle="modal" data-target="#modal1" class="btn btn-blue-fill">Voter</button>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="team text-center">
-						<div class="cover" style="background:url('../static/img/team/arriere.jpg'); background-size:cover;">
-							<div class="overlay text-center">
-								<h3 class="white">10 ans</h3>
-								<h5 class="light light-white">D'expérience</h5>
-							</div>
-						</div>
-						<img src="../static/img/team/mefteh.jpg" alt="Team Image" class="avatar">
-						<div class="title">
-							<h4>Med Ali MEFTAH</h4>
-							<h5 class="muted regular">Enseignant informatique</h5>
-							<div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                            </div>
-						</div>
-						<a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue-fill ripple">Voter</a>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="team text-center">
-						<div class="cover" style="background:url('../static/img/team/arriere.jpg'); background-size:cover;">
-							<div class="overlay text-center">
-								<h3 class="white">10 ans</h3>
-								<h5 class="light light-white">D'expérience</h5>
-							</div>
-						</div>
-						<img src="../static/img/team/monta.jpg" alt="Team Image" class="avatar">
-						<div class="title">
-							<h4>Montassar BOUSELMI</h4>
-							<h5 class="muted regular">Enseignant informatique</h5>
-							<div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                            </div>
-						</div>
-						<a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue-fill ripple">Voter</a>
-					</div>
-				</div>
+					{% endfor %}
+
+				{% else %}
+				<h1>No Data</h1>
+				{% endif %}
 			</div>
 		</div>
 	</section>

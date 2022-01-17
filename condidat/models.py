@@ -11,11 +11,12 @@ class Images(models.Model):
         return self.Titre
 
 class Condidat(models.Model):
-    Images = models.ManyToManyField(Images, blank=False)
+    Image = CloudinaryField('Images', blank=True)
     Nom_condidat = models.CharField(max_length=512,blank=False)
     Cin = models.IntegerField(blank=False)
+    Experience = models.IntegerField(blank=False, default=1)
     Date_Naissance = models.DateField(blank=False)
-    Titre = models.CharField(max_length=4000,blank=False)
+    Titre = models.CharField(max_length=1024,blank=False)
     Objectif = models.CharField(max_length=4000,blank=False)
     Description = models.CharField(max_length=4000,blank=False)
 

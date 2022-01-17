@@ -1,6 +1,7 @@
 from django.shortcuts import render
-
+from condidat.models import Condidat
 
 
 def index(request):
-    return render(request, 'index.html', {})
+    cond = Condidat.objects.all()
+    return render(request, 'index.html', {'con': cond})
