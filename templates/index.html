@@ -38,6 +38,40 @@
 	<!-- Main style -->
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/cardio.css' %}">
+
+	<script>
+		
+		function validate(){
+		var username = document.getElementById("cin").value;
+		var password = document.getElementById("password").value;
+		if ( username == "12345678" && password == "12345678"){
+		alert ("Login successfully");
+		document.getElementById("cin").disabled = true;
+		document.getElementById("password").disabled = true;
+		document.getElementById("log").disabled = true;
+		document.getElementById("deco").innerText = "Déconnexion ";
+		document.getElementById("vote").disabled = false;
+		
+		}
+		else{
+		alert("Verifier vos donner");
+		window.location = "#";
+		
+		}
+		}
+
+
+		function vote(){
+			var state = document.getElementById("deco").innerText;
+			if(state == "Déconnexion")
+			{
+				alert("Vous avez voter pour Foulen ben Foulen");
+			}else{
+				alert("Vous etre pas connecter");
+			}
+
+		}
+		</script>
 </head>
 
 <body>
@@ -62,7 +96,7 @@
 					<li><a href="#intro">Accueil</a></li>
 					<li><a href="#services">Condidats</a></li>
 					<li><a href="#team">Vote</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">S'inscrire</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue"><label id="deco">Sign in</label> </a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -176,7 +210,8 @@
 										<div class="progress-bar" role="progressbar" style="width: 1%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
 									</div>
 								</div>
-								<a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue-fill ripple">Voter</a>
+								<a onclick="vote()" href="#" data-toggle="modal" class="btn btn-blue-fill ripple">Voter</a>
+								
 							</div>
 						</div>
 					{% endfor %}
@@ -194,22 +229,19 @@
 		<div class="modal-dialog">
 			<div class="modal-content modal-popup">
 				<a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
-				<h3 class="white">S'inscrire</h3>
-				<form action="" class="popup-form">
-					<input type="text" class="form-control form-white" placeholder="Nom">
-					<input type="text" class="form-control form-white" placeholder="Adresse">
-					<input type="password" class="form-control form-white" placeholder="Mot de passe">
-					<input type="text" class="form-control form-white" placeholder="Numéro carte d'identité">
+				<h3 class="white">Sign in</h3>
+				<form class="popup-form">
+					<input type="text" class="form-control form-white" placeholder="Numéro carte d'identité" id="cin" required>
+					<input type="password" class="form-control form-white" placeholder="Mot de passe" id="password" required>
 					<div class="dropdown">
 						
 					</div>
 					<div class="checkbox-holder text-left">
-						<div class="checkbox">
-							<input type="checkbox" value="None" id="squaredOne" name="check" />
-							<label for="squaredOne"><span>JJ'accepte les <strong>Terms &amp; Conditions</strong></span></label>
+						<div>
+							<label for="squaredOne"><span>Pas de mot de passe ?<strong>  Cliker ici</strong></span></label>
 						</div>
 					</div>
-					<button type="submit" class="btn btn-submit">S'inscrire</button>
+					<button id="log" onclick="validate()" class="btn btn-submit">Sign in</button>
 				</form>
 			</div>
 		</div>
