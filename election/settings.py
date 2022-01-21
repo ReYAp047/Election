@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-k^qplvt6hhv*r_p)w5h-w6v&xs_(p^-68a4=213b!v6u39cf6y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['election.herokuapp.com']
 
 
 # Application definition
@@ -97,10 +97,10 @@ WSGI_APPLICATION = 'election.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'elect',
-        'USER': 'postgres',
-        'PASSWORD': '12345',
-        'HOST': 'localhost',
+        'NAME': 'da50gg375ubeht',
+        'USER': 'tpcjruzzxkgafl',
+        'PASSWORD': '6e3b36ccecbcc382a9cabe4b61c7630fe267a86cc49635de3d0f5813e1f2be33',
+        'HOST': 'ec2-54-76-249-45.eu-west-1.compute.amazonaws.com',
         'PORT': '5432',
     }
 }
@@ -142,7 +142,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = "/static/"
+django_heroku.settings(locals())
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -158,4 +160,3 @@ cloudinary.config(
     api_key = "188668346319458",
     api_secret = "JEQtuJo3rBQ-jmx1YhDcLYKLIh0"
 )
-django_heroku.settings(locals())
